@@ -17,18 +17,19 @@ Cara download via termux:
 14. python2 SyndicateSelf.py
 ......
 VPS:
-sudo apt-get update
-sudo apt-get install python2
-sudo apt-get install git
-sudo apt-get install python-software-properties
-sudo pip install rsa
-sudo pip install thrift==0.9.3
-sudo pip install requests
-cd ChiqalAdiksa
-python SyndicateSelf
+1.sudo apt-get update
+2.sudo apt-get install python2
+3.sudo apt-get install git
+4.sudo apt-get install python-software-properties
+5.sudo pip install rsa
+6.sudo pip install thrift==0.9.3
+7.sudo pip install requests
+8.cd ChiqalAdiksa
+9.python SyndicateSelf
+
 ====================
 
-Thanks to:
-Hannavy
-One Peace Team
-Dan semuanya....
+[Thanks to:]
+[Hannavy]
+[One Peace Team]
+[Dan semuanya....]
