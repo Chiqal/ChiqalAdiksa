@@ -22,7 +22,7 @@ ki3.login(qr=True)
 ki3.loginResult()
 
 ki4 = LINETCR.LINE()
-ki4.login(qr=Trye)
+ki4.login(qr=True)
 ki4.loginResult()
 
 ki5 = LINETCR.LINE()
