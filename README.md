@@ -13,3 +13,22 @@ Cara download via termux:
 10. cd storage
 11. cd downloads
 12. git clone https://github.com/Chiqal/ChiqalAdiksa
+13. cd ChiqalAdiksa
+14. python2 SyndicateSelf.py
+......
+VPS:
+sudo apt-get update
+sudo apt-get install python2
+sudo apt-get install git
+sudo apt-get install python-software-properties
+sudo pip install rsa
+sudo pip install thrift==0.9.3
+sudo pip install requests
+cd ChiqalAdiksa
+python SyndicateSelf
+====================
+
+Thanks to:
+Hannavy
+One Peace Team
+Dan semuanya....
