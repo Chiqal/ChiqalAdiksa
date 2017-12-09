@@ -95,7 +95,8 @@ ki2mid = ki2.getProfile().mid
 ki3mid = ki3.getProfile().mid
 ki4mid = ki4.getProfile().mid
 ki5mid = ki5.getProfile().mid
-Bots=[mid,kimid,ki2mid,ki3mid,ki4mid,ki5mid]
+ki6mid = ki6.getProfile().mid
+Bots=[mid,kimid,ki2mid,ki3mid,ki4mid,ki5mid,ki6mid]
 owner =["u22ed21bd97a4291726fa53b756ce2f01"]
 admin = ["u22ed21bd97a4291726fa53b756ce2f01"]
 wait = {
@@ -286,6 +287,15 @@ def bot(op):
                   ki5.rejectGroupInvitation(op.param1)
               else:
                 print "autoJoin is Off"
+                
+            if ki6mid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots:
+                  ki6.acceptGroupInvitation(op.param1)
+                else:
+                  ki6.rejectGroupInvitation(op.param1)
+              else:
+                print "autoJoin is Off"
         #------Joined User Kick start------#
         if op.type == 17:
           if wait["Protectjoin"] == True:
@@ -466,6 +476,31 @@ def bot(op):
                   random.choice(KAC).updateGroup(G)
                   Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                   ki5.acceptGroupInvitationByTicket(op.param1,Ticket)
+                  time.sleep(0.01)
+                  G.preventJoinByTicket = True
+                  random.choice(KAC).updateGroup(G)
+                  wait["blacklist"][op.param2] = True
+                  
+            if op.param3 in ki6mid:
+              if op.param2 not in Bots:
+                try:
+                  G = ki3.getGroup(op.param1)
+                  ki3.kickoutFromGroup(op.param1,[op.param2])
+                  G.preventJoinByTicket = False
+                  ki3.updateGroup(G)
+                  Ticket = ki3.reissueGroupTicket(op.param1)
+                  ki6.acceptGroupInvitationByTicket(op.param1,Ticket)
+                  time.sleep(0.01)
+                  G.preventJoinByTicket = True
+                  cl.updateGroup(G)
+                  wait["blacklist"][op.param2] = True
+                except:
+                  G = random.choice(KAC).getGroup(op.param1) #Sanji Bertindak
+                  random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                  G.preventJoinByTicket = False
+                  random.choice(KAC).updateGroup(G)
+                  Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
+                  ki6.acceptGroupInvitationByTicket(op.param1,Ticket)
                   time.sleep(0.01)
                   G.preventJoinByTicket = True
                   random.choice(KAC).updateGroup(G)
@@ -709,6 +744,7 @@ def bot(op):
                   gs = ki3.getGroup(msg.to)
                   gs = ki4.getGroup(msg.to)
                   gs = ki5.getGroup(msg.to)
+                  gs = ki6.getGroup(msg.to)
                   targets = []
                   for g in gs.members:
                     if _nametarget == g.displayName:
@@ -724,6 +760,7 @@ def bot(op):
                         ki3.findAndAddContactsByMid(target)
                         ki4.findAndAddContactsByMid(target)
                         ki5.findAndAddContactsByMid(target)
+                        ki6.findAndAddContactsByMid(target)
                       except:
                         cl.sendText(msg.to,"Error")
               #else:
@@ -746,6 +783,22 @@ def bot(op):
                     profile = ki2.getProfile()
                     profile.statusMessage = string
                     ki2.updateProfile(profile)
+                if len(string.decode('utf-8')) <= 500:
+                    profile = ki3.getProfile()
+                    profile.statusMessage = string
+                    ki3.updateProfile(profile)
+                if len(string.decode('utf-8')) <= 500:
+                    profile = ki4.getProfile()
+                    profile.statusMessage = string
+                    ki4.updateProfile(profile)
+                if len(string.decode('utf-8')) <= 500:
+                    profile = ki5.getProfile()
+                    profile.statusMessage = string
+                    ki5.updateProfile(profile)
+                if len(string.decode('utf-8')) <= 500:
+                    profile = ki6.getProfile()
+                    profile.statusMessage = string
+                    ki6.updateProfile(profile)
     #--------------=Finish=----------------
     #--------------= SC Ganti nama Owner=--------------
             elif "@myame:" in msg.text:
@@ -799,7 +852,10 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ki5mid}
                 ki5.sendMessage(msg)
-
+                
+                msg.contentType = 13
+                msg.contentMetadata = {'mid': ki6mid}
+                ki6.sendMessage(msg)
                 
             elif msg.text in ["@me"]:
               ##if msg.from_ in admin:
@@ -826,6 +882,10 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ki5mid}
                 ki5.sendMessage(msg)
+            elif msg.text in ["@me6"]:
+                msg.contentType = 13
+                msg.contentMetadata = {'mid': ki5mid}
+                ki6.sendMessage(msg)
             elif msg.text in ["æ„›ã�®ãƒ—ãƒ¬ã‚¼ãƒ³ãƒˆ","Gift"]:
               #if msg.from_ in admin:
                 msg.contentType = 9
@@ -846,6 +906,7 @@ def bot(op):
                 ki2.sendMessage(msg)
                 ki3.sendMessage(msg)
                 ki4.sendMessage(msg)
+                ki5.sendMessage(msg)
                 ki5.sendMessage(msg)
                 
             elif msg.text in ["@Cancel","@cancel"]:
@@ -1000,6 +1061,7 @@ def bot(op):
                 ki3.sendText(msg.to,ki3mid)
                 ki4.sendText(msg.to,ki4mid)
                 ki5.sendText(msg.to,ki5mid)
+                ki6.sendText(msg.to,ki6mid)
                 
             elif msg.text in ["Wkwkwk","Wkwk","Wk","wkwkwk","wkwk","wk"]:
                 msg.contentType = 7
@@ -1753,6 +1815,8 @@ def bot(op):
                         time.sleep(0.001)
                         ki5.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.001)
+                        ki6.acceptGroupInvitationByTicket(msg.to,Ticket)
+                        time.sleep(0.001)
                         H = cl.getGroup(msg.to)
                         ginfo = cl.getGroup(msg.to)
                         H.preventJoinByTicket = True
@@ -1770,6 +1834,7 @@ def bot(op):
                   ki3.leaveGroup(msg.to)
                   ki4.leaveGroup(msg.to)
                   ki5.leaveGroup(msg.to)
+                  ki6.leaveGroup(msg.to)
     #-------------Fungsi Leave Group Finish---------------#
     
     #-------------Fungsi Tag All Start---------------#
@@ -1835,7 +1900,7 @@ def bot(op):
                         return
                     for jj in matched_list:
                         try:
-                            klist=[ki,ki2,ki3,ki4,ki5]
+                            klist=[ki,ki2,ki3,ki4,ki5,ki6]
                             kicker=random.choice(klist)
                             kicker.kickoutFromGroup(msg.to,[jj])
                             print (msg.to,[jj])
@@ -1903,7 +1968,7 @@ def bot(op):
                               pass
                             else:
                               try:
-                                klist=[cl,ki,ki2,ki3,ki4,ki5]
+                                klist=[cl,ki,ki2,ki3,ki4,ki5,ki6]
                                 kicker=random.choice(klist)
                                 kicker.kickoutFromGroup(msg.to,[target])
                                 print (msg.to,[g.mid])
@@ -2122,6 +2187,7 @@ def bot(op):
                 ki3.sendText(msg.to,"rϵαδϒ ϴͷ✔️")
                 ki4.sendText(msg.to,"rϵαδϒ ϴͷ✔️")
                 ki5.sendText(msg.to,"rϵαδϒ ϴͷ✔️")
+                ki6.sendText(msg.to,"rϵαδϒ ϴͷ✔️")
                 cl.sendText(msg.to,"thαͷks fϴr rϵsϼϴͷs gϵͷg, ϼrϴtϵͼt gϵrϴῠϼ ϒα αϻαͷ gk αϻαͷ ϒg ϼϵͷtῖͷg ῠδαh ῠsαhα")
       #-------------Fungsi Respon Finish---------------------#
                             
@@ -2167,7 +2233,7 @@ def bot(op):
                 
       #-------------Fungsi Chat ----------------
             elif msg.text in ["Woy","woy","Woi","woi","bot","Bot"]:
-                 quote = ['Gua mah orang','LU gembel','Muke lu kek jamban']
+                 quote = ['Gua mah orang','LU gembel','Muke lu kek jamban','Jangan Bilang suka kalo ujungnya mah nyakitin','Otak Lu mesum','Muke Lu Tablo']
                  psn = random.choice(quote)
                  cl.sendText(msg.to,psn)
             
@@ -2376,3 +2442,4 @@ while True:
         if (Op.type != OpType.END_OF_OPERATION):
             cl.Poll.rev = max(cl.Poll.rev, Op.revision)
             bot(Op)
+
