@@ -12,3 +12,4 @@ Cara download via termux:
 9. apt upgrade
 10. cd storage
 11. cd downloads
+12. git clone https://github.com/Chiqal/ChiqalAdiksa
