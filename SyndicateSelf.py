@@ -88,7 +88,7 @@ helpMessage ="""╔═════════════
 Setgroup =""" 
     S̸͟͞Y̸͟͞N̸͟͞D̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞E̸͟͞ P̸͟͞R̸͟͞O̸͟͞T̸͟͞E̸͟͞C̸͟͞T̸͟͞
 """
-KAC=[cl,ki,ki2,ki3,ki4,ki5]
+KAC=[cl,ki,ki2,ki3,ki4,ki5,ki6]
 mid = cl.getProfile().mid
 kimid = ki.getProfile().mid
 ki2mid = ki2.getProfile().mid
@@ -1519,29 +1519,29 @@ def bot(op):
                         cl.sendText(msg.to,"è¦�äº†å…³æ–­ã€‚")
             elif msg.text in ["Status","@Set","@set","Set view"]:
               #if msg.from_ in admin:
-                md = "✡️stαtῠs ϼrϴtϵksῖ✡️\nS̸͟͞Y̸͟͞N̸͟͞D̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞E̸͟͞ P̸͟͞R̸͟͞O̸͟͞T̸͟͞E̸͟͞C̸͟͞T̸͟͞\n=============\n"
-                if wait["Protectcancel"] == True: md+="[•]Protect Cancel [On]\n"
-                else: md+="[•]Protect Cancel [Off]\n"
-                if wait["Protectjoin"] == True: md+="[•]Protect Group [On]\n"
-                else: md+="[•]Protect Group [Off]\n"
-                if wait["Protectgr"] == True: md+="[•]Protect QR [On]\n"
-                else: md+="[•]Protect QR [Off]\n"
-                if wait["Protectcancl"] == True: md+="[•]Protect Invite [On]\n"
-                else: md+="[•]Protect Invite [Off]\n"
-                if wait["contact"] == True: md+="[•]Contact [On]\n"
-                else: md+="[•]Contact [Off]\n"
-                if wait["autoJoin"] == True: md+="[•]Auto Join [On]\n"
-                else: md +="[•]Auto Join [Off]\n"
-                if wait["autoCancel"]["on"] == True:md+="[•]Group Cancel " + str(wait["autoCancel"]["members"]) + "\n"
-                else: md+= "[•]Group Cancel [Off]\n"
-                if wait["leaveRoom"] == True: md+="[•]Auto Leave [On]\n"
+                md = "✪stαtῠs ϼrϴtϵksῖ✪\nS̸͟͞Y̸͟͞N̸͟͞D̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞E̸͟͞ P̸͟͞R̸͟͞O̸͟͞T̸͟͞E̸͟͞C̸͟͞T̸͟͞\n▬▬▬▬▬▬▬▬▬▬▬\n"
+                if wait["Protectcancel"] == True: md+="[✪]Protect Cancel [On]\n"
+                else: md+="[✪]Protect Cancel [Off]\n"
+                if wait["Protectjoin"] == True: md+="[✪]Protect Group [On]\n"
+                else: md+="[✪]Protect Group [Off]\n"
+                if wait["Protectgr"] == True: md+="[✪]Protect QR [On]\n"
+                else: md+="[✪]Protect QR [Off]\n"
+                if wait["Protectcancl"] == True: md+="[✪]Protect Invite [On]\n"
+                else: md+="[✪]Protect Invite [Off]\n"
+                if wait["contact"] == True: md+="[✪]Contact [On]\n"
+                else: md+="[✪]Contact [Off]\n"
+                if wait["autoJoin"] == True: md+="[✪]Auto Join [On]\n"
+                else: md +="[✪]Auto Join [Off]\n"
+                if wait["autoCancel"]["on"] == True:md+="[✪]Group Cancel " + str(wait["autoCancel"]["members"]) + "\n"
+                else: md+= "[✪]Group Cancel [Off]\n"
+                if wait["leaveRoom"] == True: md+="[✪]Auto Leave [On]\n"
                 else: md+=" Auto Leave [Off]\n"
-                if wait["timeline"] == True: md+="[•]Share [On]\n"
-                else:md+="[•]Share [Off]\n"
-                if wait["autoAdd"] == True: md+="[•]Auto Add [On]\n"
-                else:md+="[•]Auto Add [Off]\n"
-                if wait["commentOn"] == True: md+="[•]Comment [On]\n"
-                else:md+="[•]Comment [Off]\n*============*\nCreated: A⃜ C⃜H⃜I⃜Q⃜A⃜L⃜ F⃜V⃜\n*============*"
+                if wait["timeline"] == True: md+="[✪]Share [On]\n"
+                else:md+="[✪]Share [Off]\n"
+                if wait["autoAdd"] == True: md+="[✪]Auto Add [On]\n"
+                else:md+="[✪]Auto Add [Off]\n"
+                if wait["commentOn"] == True: md+="[✪]Comment [On]\n"
+                else:md+="[✪]Comment [Off]\n▬▬▬▬▬▬▬▬▬\nCreated: A⃜ C⃜H⃜I⃜Q⃜A⃜L⃜ F⃜V⃜\n▬▬▬▬▬▬▬▬▬"
                 cl.sendText(msg.to,md)
             elif msg.text in ["Group id","Ginfo"]:
                 gid = cl.getGroupIdsJoined()
@@ -2188,7 +2188,7 @@ def bot(op):
                 ki4.sendText(msg.to,"rϵαδϒ ϴͷ✔️")
                 ki5.sendText(msg.to,"rϵαδϒ ϴͷ✔️")
                 ki6.sendText(msg.to,"rϵαδϒ ϴͷ✔️")
-                cl.sendText(msg.to,"thαͷks fϴr rϵsϼϴͷs gϵͷg, ϼrϴtϵͼt gϵrϴῠϼ ϒα αϻαͷ gk αϻαͷ ϒg ϼϵͷtῖͷg ῠδαh ῠsαhα")
+                cl.sendText(msg.to,"thαͷks fϴr rϵsϼϴͷs gϵͷg, ϼrϴtϵͼt gϵrϴῠϼ ϒα αϻαͷ gk αϻαͷ ϒg Penting Joossss")
       #-------------Fungsi Respon Finish---------------------#
                             
 
